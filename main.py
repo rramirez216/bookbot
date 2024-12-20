@@ -13,7 +13,14 @@ def main():
             else:
                 character_count[letter] = 1
 
-    print(character_count)
+    character_count = sorted(character_count.items(), key=lambda x: x[1], reverse=True)
+    character_count = dict(character_count)
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"{len(split_string)} words found in the document\n\n")
+    for character, count in character_count.items():
+        if character.isalpha():
+            print(f"The '{character}' character was found {count} times")
+    print("--- End report ---")
 
 
 main()
